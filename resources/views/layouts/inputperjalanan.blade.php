@@ -46,9 +46,9 @@
                             </div>
                              <div class="form-group">
                                 <label for="Suhu">Suhu</label>
-                                <input id="Suhu"  type="number" class="form-control" name="Suhu" min="30" tabindex="4"  required autofocus>
+                                <input id="Suhu"  type="number" class="form-control" name="Suhu" min="34" max="40" tabindex="4"  required autofocus>
                                 <div class="invalid-feedback">
-                                    Tolong isi Suhu dengan benar Anda!
+                                    Tolong isi Suhu Anda dengan benar !
                                 </div>
                             </div>
 

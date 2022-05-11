@@ -3,11 +3,22 @@
 @section('title')
     Dokumentasi
 @endsection
+
 @section('content')
     @php
     $no = 1;
     @endphp
     <div class="card-body">
+@if (session('AlertInput'))
+    <div class="alert alert-success  alert-dismissible show fade">
+        <div class="alert-body">
+        <button class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+        <Strong>Anda Telah Berhasil Menambahkan Data</Strong>
+        </div>
+  </div>
+@endif
         <table class="table table-striped table-light" id="myTable">
             <thead>
                 <tr>

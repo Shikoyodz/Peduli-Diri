@@ -7,6 +7,7 @@ use App\Models\perjalanan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use PDF;
 
 
 class perjalanan_controller extends Controller
@@ -43,6 +44,10 @@ class perjalanan_controller extends Controller
 
     public function Simpan_input(Request $request)
     {
+        $request->validate([
+            'tanggal'=>'required|before_or_equal:today',
+        ]
+    );
         $data = [
             'id_user' => auth()->user()->id,
             'tanggal' => $request->tanggal,
@@ -52,7 +57,7 @@ class perjalanan_controller extends Controller
         ];
         // dd($data);
         perjalanan::create($data);
-        return redirect('/');
+        return redirect('/')->with('AlertInput','Anda Berhasil Menginputdata');
     }
     public function cariPerjalanan(Request $request)
     {
@@ -188,4 +193,12 @@ class perjalanan_controller extends Controller
             return view('layouts.dokumentasi', ['data' => $sorted]);
         }
     }
+
+    // public function generatePDF(Request $request)
+    // {
+    //     $data = perjalanan::where('id_user', '=', auth()->user()->id);
+    //     $pdf = PDF::loadView('layout.dokumentasi',$data);
+    //     return $pdf->download('myTable.pdf');
+    // }
+
 }

@@ -9,21 +9,21 @@
     </div>
   </div>
 @endif
-@if (session('AlertRegister'))
-<div class="alert alert-success  alert-dismissible show fade">
-    <div class="alert-body">
-      <button class="close" data-dismiss="alert">
-        <span>&times;</span>
-      </button>
-      <Strong>Anda Berhasil Register</Strong>
-    </div>
-  </div>
-@endif
-
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <title>Login &mdash; Stisla</title>
+
+    @if (session('AlertRegister'))
+    <div class="alert alert-success  alert-dismissible show fade">
+        <div class="alert-body">
+          <button class="close" data-dismiss="alert">
+            <span>&times;</span>
+          </button>
+          <Strong>Anda Berhasil Register</Strong>
+        </div>
+      </div>
+    @endif
 </head>
 
 <body>
@@ -52,8 +52,8 @@
 
                     <div class="form-group">
                         <label for="email">NIK</label>
-                        <input id="email" type="text" class="form-control" name="email" tabindex="1" required autofocus>
-                        <input id="password" type="hidden" class="form-control" name="password" tabindex="1" required autofocus>
+                        <input id="email" type="number" class="form-control" name="email"  tabindex="1" required autofocus>
+                        <input id="password" type="hidden" class="form-control" name="password"  tabindex="1" required autofocus>
                           <div class="invalid-feedback">
                             Harap isi NIK
                           </div>

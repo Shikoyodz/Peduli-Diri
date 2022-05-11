@@ -50,7 +50,7 @@
     <ul class="navbar-nav navbar-right">
         <li class="dropdown"><a href="#" data-toggle="dropdown"
                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                <img alt="image" src="{{ asset('') }}assets/img/Farel.jpg" alt="logo" class="rounded-circle">
+                <img alt="image" src="{{ asset('') }}assets/img/Farel.jpg" alt="logo" style="width: 40px" class="rounded-circle">
                 <div class="d-sm-none d-lg-inline-block">Hai,
                     @if (!empty(auth()->user()->nama))
                         {{ auth()->user()->nama }}
@@ -60,9 +60,9 @@
                 </div>
                 <div class="dropdown-menu dropdown-menu-right">
                     <div class="dropdown-header text-center">
-                        <img class="img-md rounded-circle" src="{{ asset('') }}assets/img/Farel.jpg"  alt="Profile image">
+                        <img class="img-md rounded-circle" src="{{ asset('') }}assets/img/Farel.jpg" alt="Profile image" style="width: 60px">
                         <p class="mb-1 mt-3 font-weight-semibold">{{ auth()->user()->nama }}</p>
-                        <p class="fw-light text-muted mb-0">NIK : {{ auth()->user()->email }}</p>
+                        <p class="fw-light text-muted mb-0">{{ auth()->user()->email }}</p>
                       </div>
                     <a href="logout" class="dropdown-item has-icon text-danger">
                         <i class="fas fa-sign-out-alt"></i> Logout
