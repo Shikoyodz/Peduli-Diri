@@ -193,12 +193,37 @@ class perjalanan_controller extends Controller
             return view('layouts.dokumentasi', ['data' => $sorted]);
         }
     }
-
+    public function Hapus_data(Request $request) {
+        Perjalanan::find(((int) $request->id))->delete();
+        return redirect('/');
+    }
     // public function generatePDF(Request $request)
     // {
+    //     $perjalanan = perjalanan::all();
     //     $data = perjalanan::where('id_user', '=', auth()->user()->id);
-    //     $pdf = PDF::loadView('layout.dokumentasi',$data);
+    //     $data = [
+    //         'id_user' => auth()->user()->id,
+    //         'tanggal' => $request->tanggal,
+    //         'waktu' => $request->waktu,
+    //         'lokasi' => $request->lokasi,
+    //         'Suhu' => $request->Suhu
+    //     ];
+    //     $pdf = PDF::loadView('myTable',$data);
     //     return $pdf->download('myTable.pdf');
     // }
+    public function edit_data(Request $request){
+        $data = perjalanan::find(((int) $request->id));
+        // dd($data);
+        return view('layouts.edit',['data' => $data]);
+    }
+    public function update_data(Request $request){
+        $perjalanan = perjalanan::find(((int) $request->id));
+        $perjalanan->tanggal = $request->tanggal;
+        $perjalanan->waktu = $request->waktu;
+        $perjalanan->lokasi = $request->lokasi;
+        $perjalanan->Suhu = $request->Suhu;
+        $perjalanan->update();
 
+        return redirect('/')->with('AlertUpdate','Anda Berhasil Update');
+    }
 }

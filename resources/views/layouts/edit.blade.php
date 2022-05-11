@@ -1,4 +1,3 @@
-<!--  Input Data Perjalanan  -->
 @extends('layouts.master')
 
 @section('title')
@@ -15,38 +14,33 @@
 
               <div class="card card-primary">
                     <div class="card-body">
-                      <form method="POST" action="simpanData" class="needs-validation" novalidate="">
+                      <form method="POST" action="updateData" class="needs-validation" novalidate="">
                           @csrf
-                          {{-- <div class="form-group">
-                              <label for="id_user">User ID</label>
-                              <input id="id_user" type="id_user" class="form-control" name="id_user" tabindex="1" required autofocus>
-                              <div class="invalid-feedback">
-                                Tolong Isi User ID Anda!
-                              </div>
-                            </div> --}}
+                          <input id="id" value="{{ $data->id }}" wakt type="hidden" class="form-control" name="id"  required autofocus>
+
                             <div class="form-group">
                                 <label for="tanggal">Tanggal</label>
-                                <input id="tanggal" type="date" class="form-control" name="tanggal" max="{{ date('Y-m-d') }}" required autofocus>
+                                <input id="tanggal" value="{{ $data->tanggal }}" wakt type="date" class="form-control" name="tanggal" max="{{ date('Y-m-d') }}" required autofocus>
                             <div class="invalid-feedback">
                                 Tolong isi Tanggal!
                             </div>
 
                             <div class="form-group">
                                 <label for="waktu">Jam</label>
-                                <input id="waktu" type="time" class="form-control" name="waktu"  required autofocus>
+                                <input id="waktu" value="{{ $data->waktu }}" type="time" class="form-control" name="waktu"  required autofocus>
                             <div class="invalid-feedback">
                                 Tolong isi Tanggal!
                             </div>
 
                             <div class="form-group">
                                 <label for="lokasi">Alamat</label>
-                                <input id="lokasi" type="text" class="form-control" name="lokasi"  required autofocus>
+                                <input id="lokasi" value="{{ $data->lokasi }}" type="text" class="form-control" name="lokasi"  required autofocus>
                             <div class="invalid-feedback">
                                 Tolong isi Alamat Anda!
                             </div>
                              <div class="form-group">
                                 <label for="Suhu">Suhu</label>
-                                <input id="Suhu"  type="number" class="form-control" name="Suhu" min="34" max="40" tabindex="4"  required autofocus>
+                                <input id="Suhu" value="{{ $data->Suhu }}" type="number" class="form-control" name="Suhu" min="34" max="40" tabindex="4"  required autofocus>
                                 <div class="invalid-feedback">
                                     Tolong isi Suhu Anda dengan benar !
                                 </div>
@@ -54,7 +48,7 @@
 
                     <div class="form-group">
                       <button type="submit" class="btn btn-primary btn-lg btn-block">
-                        Input
+                        Update
                       </button>
                     </div>
                   </form>

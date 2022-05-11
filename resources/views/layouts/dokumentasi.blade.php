@@ -19,6 +19,16 @@
         </div>
   </div>
 @endif
+@if (session('AlertUpdate'))
+    <div class="alert alert-success  alert-dismissible show fade">
+        <div class="alert-body">
+        <button class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+        <Strong>Anda Telah Berhasil Memperbaharui Data</Strong>
+        </div>
+  </div>
+@endif
         <table class="table table-striped table-light" id="myTable">
             <thead>
                 <tr>
@@ -72,6 +82,9 @@
                             </form>
                         </div>
                     </th>
+                    <th scope="col">
+
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -83,6 +96,22 @@
                         <td>{{ $peduli_diri->waktu }}</td>
                         <td>{{ $peduli_diri->lokasi }}</td>
                         <td>{{ $peduli_diri->Suhu }} ℃</td>
+                        <td>
+                            <div class="row">
+                                <form method="POST" action="/editData">
+                                    @csrf
+                                    <input id="id" type="hidden" class="form-control" name="id" value="{{ $peduli_diri->id }}" required>
+                                    <button type="submit" class="btn btn-warning btn-icon icon-right mr-2" tabindex="3">Edit  <i class="fas fa-edit"></i></button>
+                                </form>
+
+                                <form method="POST" action="/hapusData">
+                                    @csrf
+                                    <input id="id" type="hidden" class="form-control" name="id" value="{{ $peduli_diri->id }}" required>
+                                    <button type="submit" class="btn btn-danger btn-icon icon-right " tabindex="4">Delete <i class="fas fa-trash-alt"></i></button>
+                                </form>
+
+                            </div>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

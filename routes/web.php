@@ -30,9 +30,14 @@ Route::get('/inputperjalanan', function () {
 
 Route::get('/register', [user_controller::class, 'Halaman_register']);
 Route::post('/simpanUser', [user_controller::class, 'Simpan_register']);
-
+// simpan Data
 Route::get('/inputperjalanan', [perjalanan_controller::class, 'Halaman_input'])->middleware('auth');
 Route::post('/simpanData', [perjalanan_controller::class, 'Simpan_input'])->middleware('auth');
+// Hapus Data
+Route::post('/hapusData', [perjalanan_controller::class, 'Hapus_data'])->middleware('auth');
+// Edit Data
+Route::post('/editData', [perjalanan_controller::class, 'edit_data'])->middleware('auth');
+Route::post('/updateData', [perjalanan_controller::class, 'update_data'])->middleware('auth');
 
 Route::get('/', [perjalanan_controller::class, 'index'])->middleware('auth');
 
@@ -43,3 +48,4 @@ Route::get('/logout',[login_controller::class, 'LogOut']);
 Route::get('/cari',[perjalanan_controller::class,'cariPerjalanan'])->middleware('auth');
 
 Route::get('/urut',[perjalanan_controller::class,'urutPerjalanan'])->middleware('auth');
+
