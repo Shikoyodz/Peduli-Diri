@@ -40,7 +40,7 @@
                 <div class="card-header"><h4>Login</h4></div>
 
                 <div class="card-body">
-                  <form method="POST" action="/createLogin">
+                  <form method="POST" action="/createLogin" class="needs-validation" novalidate="">
                     @csrf
                     <div class="form-group">
                         <label for="nama">Nama Lengkap</label>
@@ -52,8 +52,8 @@
 
                     <div class="form-group">
                         <label for="email">NIK</label>
-                        <input id="email" type="number" class="form-control" name="email"  tabindex="1" required autofocus>
-                        <input id="password" type="hidden" class="form-control" name="password"  tabindex="1" required autofocus>
+                        <input id="email" type="number" class="form-control" name="email"  tabindex="1" tabindex="1" onKeyPress="if(this.value.length==16) return false;" oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null" min="0" required autofocus>
+                        <input id="password" type="hidden" class="form-control" name="password"  tabindex="1" tabindex="1" onKeyPress="if(this.value.length==16) return false;" oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null" min="0" required autofocus>
                           <div class="invalid-feedback">
                             Harap isi NIK
                           </div>

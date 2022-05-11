@@ -16,7 +16,7 @@ class user_controller extends Controller
     public function Simpan_register(Request $request)
     {
         $request->validate([
-            'nik'=>'required|unique:users,email|min:16|max:16|min:0',
+            'nik'=>'required|unique:users,email|digits:16',
             'name_lengkap'=>'required'
         ],
         [

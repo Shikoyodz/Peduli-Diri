@@ -16,7 +16,7 @@
               <div class="card-header"><h4>Register</h4></div>
 
               <div class="card-body">
-                <form method="POST" action="simpanUser">
+                <form method="POST" action="simpanUser" class="needs-validation" novalidate="">
                     @csrf
                     <div class="form-group">
                         <label for="email">email</label>
@@ -28,7 +28,7 @@
 
                   <div class="form-group">
                     <label for="nik">NIK</label>
-                    <input id="nik" type="number" class="form-control" name="nik"  tabindex="1" required autofocus>
+                    <input id="nik" type="number" class="form-control" name="nik"  tabindex="1" onKeyPress="if(this.value.length==16) return false;" oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null" min="0" required autofocus>
                     <div class="invalid-feedback">
                       Tolong isi NIK!
                     </div>
@@ -37,7 +37,7 @@
                   <form method="POST" action="simpanUser" class="needs-validation" novalidate="">
                     <div class="form-group">
                       <label for="name_lengkap">Nama</label>
-                      <input id="name_lengkap" type="text" class="form-control" name="name_lengkap" tabindex="2" required autofocus>
+                      <input id="name_lengkap" type="text" class="form-control" name="name_lengkap" tabindex="2"  required autofocus>
                       <div class="invalid-feedback">
                         Tolong isi Nama!
                     </div>
