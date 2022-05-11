@@ -9,6 +9,16 @@
     </div>
   </div>
 @endif
+@if (session('AlertRegister'))
+<div class="alert alert-success  alert-dismissible show fade">
+    <div class="alert-body">
+      <button class="close" data-dismiss="alert">
+        <span>&times;</span>
+      </button>
+      <Strong>Anda Telah Berhasil Register</Strong>
+    </div>
+  </div>
+@endif
 
 <head>
     <meta charset="UTF-8">
@@ -54,13 +64,14 @@
                         Login
                       </button>
                     </div>
+                        <div class="mt-5 text-muted text-center">
+                            Don't have an account? <a href="/register">Create One</a>
+                        </div>
                   </form>
 
                 </div>
                 </div>
-              <div class="mt-5 text-muted text-center">
-                Don't have an account? <a href="/register">Create One</a>
-              </div>
+
 
             </div>
         </div>

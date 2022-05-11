@@ -32,6 +32,6 @@ class user_controller extends Controller
 
    User::create($data);
 //    dd($data);
-   return redirect('/login');
+   return redirect('/login')->with('AlertRegister','Anda Berhasil Register');
     }
 }
