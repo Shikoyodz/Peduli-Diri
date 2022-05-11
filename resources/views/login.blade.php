@@ -15,7 +15,7 @@
       <button class="close" data-dismiss="alert">
         <span>&times;</span>
       </button>
-      <Strong>Anda Telah Berhasil Register</Strong>
+      <Strong>Anda Berhasil Register</Strong>
     </div>
   </div>
 @endif
